@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Budget Tracker Pro</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>💰 Budget Tracker Pro</h1>
+      <p>Manage your finances with intelligence</p>
+    </header>
+
+    <section class="summary">
+      <div class="card income">
+        <h2>Total Income</h2>
+        <p id="totalIncome">$0</p>
+      </div>
+      <div class="card expenses">
+        <h2>Total Expenses</h2>
+        <p id="totalExpenses">$0</p>
+      </div>
+      <div class="card balance">
+        <h2>Balance</h2>
+        <p id="balance">$0</p>
+      </div>
+    </section>
+
+    <section class="controls">
+      <button onclick="openForm()">➕ Add Transaction</button>
+      <button onclick="openBudgetForm()">⚙️ Set Budget</button>
+    </section>
+
+    <section class="filters">
+      <select id="filterType" onchange="applyFilters()">
+        <option value="all">All Types</option>
+        <option value="income">Income</option>
+        <option value="expense">Expense</option>
+      </select>
+
+      <select id="filterCategory" onchange="applyFilters()">
+        <option value="all">All Categories</option>
+      </select>
+
+      <input type="text" id="searchInput" placeholder="Search..." oninput="applyFilters()"/>
+      <input type="date" id="startDate" onchange="applyFilters()"/>
+      <input type="date" id="endDate" onchange="applyFilters()"/>
+    </section>
+
+    <section id="budgetOverview">
+      <h2>Budget Overview</h2>
+      <div id="budgetCards"></div>
+    </section>
+
+    <section id="transactions">
+      <h2>Transactions</h2>
+      <div id="transactionList"></div>
+    </section>
+  </div>
+
+  <!-- Modals -->
+  <div id="formModal" class="modal">
+    <div class="modal-content">
+      <h3 id="formTitle">Add Transaction</h3>
+      <label>Type:
+        <select id="typeInput">
+          <option value="expense">Expense</option>
+          <option value="income">Income</option>
+        </select>
+      </label>
+      <label>Amount: <input type="number" id="amountInput" /></label>
+      <label>Category: <input type="text" id="categoryInput" /></label>
+      <label>Description: <input type="text" id="descriptionInput" /></label>
+      <label>Date: <input type="date" id="dateInput" /></label>
+      <button onclick="submitTransaction()">Save</button>
+      <button onclick="closeForm()">Cancel</button>
+    </div>
+  </div>
+
+  <div id="budgetModal" class="modal">
+    <div class="modal-content">
+      <h3>Set Budget</h3>
+      <label>Category: <input type="text" id="budgetCategory" /></label>
+      <label>Limit: <input type="number" id="budgetLimit" /></label>
+      <button onclick="submitBudget()">Set</button>
+      <button onclick="closeBudgetForm()">Cancel</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
