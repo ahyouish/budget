@@ -1,0 +1,97 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #f0f4ff;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 960px;
+  margin: auto;
+  padding: 20px;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.summary {
+  display: flex;
+  gap: 10px;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.card {
+  flex: 1;
+  padding: 20px;
+  color: white;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.card.income { background: green; }
+.card.expenses { background: red; }
+.card.balance { background: blue; }
+
+.controls {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.controls button {
+  margin: 5px;
+  padding: 10px 15px;
+  font-size: 16px;
+}
+
+.filters {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+#transactions, #budgetOverview {
+  margin-top: 30px;
+}
+
+#transactionList > div {
+  background: white;
+  margin-bottom: 10px;
+  padding: 10px;
+  border-left: 5px solid #888;
+}
+
+#transactionList > div.income {
+  border-color: green;
+}
+
+#transactionList > div.expense {
+  border-color: red;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0,0,0,0.5);
+}
+
+.modal-content {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  width: 300px;
+}
+
+.modal-content label {
+  display: block;
+  margin: 10px 0;
+}
